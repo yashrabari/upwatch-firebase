@@ -30,16 +30,19 @@ class SignupController extends BaseController {
 
     print(
         "email $email,password:$password,cpassword:$cpassword,dropdown:$dropdownValue,DOB:$date,isAgree:$isAgree");
-    UserCredential userCredential = await FirebaseAuth.instance
-        .createUserWithEmailAndPassword(email: email, password: password);
 
-    DatabaseReference ref =
-        FirebaseDatabase.instance.ref("users/${userCredential.user?.uid}");
-    await ref.set({
-      "name": name,
-      "email": email,
-      "gender": dropdownValue.toString(),
-      "dob": date.toString(),
-    });
+    try {
+      UserCredential userCredential = await FirebaseAuth.instance
+          .createUserWithEmailAndPassword(email: email, password: password);
+
+      DatabaseReference ref =
+          FirebaseDatabase.instance.ref("users/${userCredential.user?.uid}");
+      await ref.set({
+        "name": name,
+        "email": email,
+        "gender": dropdownValue.toString(),
+        "dob": date.toString(),
+      });
+    } catch (e) {}
   }
 }

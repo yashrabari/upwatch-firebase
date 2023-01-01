@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:upwatch/base_controller.dart';
+import 'package:upwatch/screen/splash_screen/splash_controller.dart';
 import 'package:upwatch/screen/tabbar_screen/tabbar_screen.dart';
 
 class LoginController extends BaseController {
@@ -17,6 +18,8 @@ class LoginController extends BaseController {
     try {
       final credential = await FirebaseAuth.instance
           .signInWithEmailAndPassword(email: email, password: password);
+
+      SplashController.userId = credential.user?.uid;
 
       Get.toNamed(TabBarScreen.routes);
     } on FirebaseAuthException catch (e) {

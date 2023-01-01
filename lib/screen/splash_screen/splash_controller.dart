@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import '../tutorial_screen/tutorial_screen.dart';
 
 class SplashController extends GetxController {
+  static String? userId = "";
   @override
   void onInit() {
     // if (getStorage.containKey(getStorage.loginData)) {

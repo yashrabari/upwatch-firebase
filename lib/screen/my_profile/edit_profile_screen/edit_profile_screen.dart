@@ -54,7 +54,7 @@ class EditProfileScreen extends GetView<EditProfileController> {
                     textFamily: AppFontFamily.GothamRounded,
                     textWeight: FontWeight.w500,
                   ),
-                  controller: TextEditingController(),
+                  controller: controller.controllerName,
                 ),
                 CommonTextFieldWithTitle(
                   titleText: Strings.email,
@@ -77,11 +77,12 @@ class EditProfileScreen extends GetView<EditProfileController> {
                     textFamily: AppFontFamily.GothamRounded,
                     textWeight: FontWeight.w500,
                   ),
-                  controller: TextEditingController(),
+                  controller: controller.controllerEmail,
                 ),
                 Obx(() {
                   return Container(
-                    margin: EdgeInsets.only(top: controller.appDimensions.topSpaceTextField),
+                    margin: EdgeInsets.only(
+                        top: controller.appDimensions.topSpaceTextField),
                     child: CommonDropdownWithTitle(
                       titleText: Strings.gender,
                       itemsList: const ["Select", "Female", "Male"],
@@ -93,7 +94,8 @@ class EditProfileScreen extends GetView<EditProfileController> {
                   );
                 }),
                 Container(
-                  margin: EdgeInsets.only(top: controller.appDimensions.topSpaceTextField),
+                  margin: EdgeInsets.only(
+                      top: controller.appDimensions.topSpaceTextField),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -113,10 +115,12 @@ class EditProfileScreen extends GetView<EditProfileController> {
                       Obx(() {
                         return GestureDetector(
                           onTap: () async {
-                            DateTime? datePick = await controller.utils.selectDate(context);
+                            DateTime? datePick =
+                                await controller.utils.selectDate(context);
                             printWhite("--> --> --> ${datePick}");
                             List dateList = datePick.toString().split(" ");
-                            controller.date!.value = dateList[0].toString().split("-");
+                            controller.date!.value =
+                                dateList[0].toString().split("-");
                             printWhite("--> --> --> ${controller.date}");
                           },
                           child: Row(
@@ -125,18 +129,25 @@ class EditProfileScreen extends GetView<EditProfileController> {
                                 child: Container(
                                   height: 55.px,
                                   decoration: BoxDecoration(
-                                    color: controller.appColors.borderColor.withOpacity(0.3),
+                                    color: controller.appColors.borderColor
+                                        .withOpacity(0.3),
                                     borderRadius: BorderRadius.circular(8.0.px),
-                                    border: Border.all(color: controller.appColors.borderColor.withOpacity(0.3)),
+                                    border: Border.all(
+                                        color: controller.appColors.borderColor
+                                            .withOpacity(0.3)),
                                   ),
                                   alignment: Alignment.center,
                                   child: Padding(
-                                    padding: EdgeInsets.symmetric(horizontal: 1.h, vertical: 1.7.h),
+                                    padding: EdgeInsets.symmetric(
+                                        horizontal: 1.h, vertical: 1.7.h),
                                     child: CommonMediumText(
-                                        title: controller.date!.isEmpty ? Strings.month : controller.date![1],
+                                        title: controller.date!.isEmpty
+                                            ? Strings.month
+                                            : controller.date![1],
                                         textStyle: MyTextStyle(
                                           textSize: 16.px,
-                                          textColor: controller.appColors.appText,
+                                          textColor:
+                                              controller.appColors.appText,
                                           textWeight: FontWeight.normal,
                                         )),
                                   ),
@@ -146,15 +157,21 @@ class EditProfileScreen extends GetView<EditProfileController> {
                                 child: Container(
                                   height: 55.px,
                                   margin: EdgeInsets.symmetric(horizontal: 2.w),
-                                  padding: EdgeInsets.symmetric(horizontal: 1.h, vertical: 1.7.h),
+                                  padding: EdgeInsets.symmetric(
+                                      horizontal: 1.h, vertical: 1.7.h),
                                   decoration: BoxDecoration(
-                                    color: controller.appColors.borderColor.withOpacity(0.3),
+                                    color: controller.appColors.borderColor
+                                        .withOpacity(0.3),
                                     borderRadius: BorderRadius.circular(8.0.px),
-                                    border: Border.all(color: controller.appColors.borderColor.withOpacity(0.3)),
+                                    border: Border.all(
+                                        color: controller.appColors.borderColor
+                                            .withOpacity(0.3)),
                                   ),
                                   alignment: Alignment.center,
                                   child: CommonMediumText(
-                                      title: controller.date!.isEmpty ? Strings.day : controller.date![2],
+                                      title: controller.date!.isEmpty
+                                          ? Strings.day
+                                          : controller.date![2],
                                       textStyle: MyTextStyle(
                                         textSize: 16.px,
                                         textColor: controller.appColors.appText,
@@ -165,15 +182,21 @@ class EditProfileScreen extends GetView<EditProfileController> {
                               Expanded(
                                 child: Container(
                                   height: 55.px,
-                                  padding: EdgeInsets.symmetric(horizontal: 1.h, vertical: 1.7.h),
+                                  padding: EdgeInsets.symmetric(
+                                      horizontal: 1.h, vertical: 1.7.h),
                                   decoration: BoxDecoration(
-                                    color: controller.appColors.borderColor.withOpacity(0.3),
+                                    color: controller.appColors.borderColor
+                                        .withOpacity(0.3),
                                     borderRadius: BorderRadius.circular(8.0.px),
-                                    border: Border.all(color: controller.appColors.borderColor.withOpacity(0.3)),
+                                    border: Border.all(
+                                        color: controller.appColors.borderColor
+                                            .withOpacity(0.3)),
                                   ),
                                   alignment: Alignment.center,
                                   child: CommonMediumText(
-                                      title: controller.date!.isEmpty ? Strings.year : controller.date![0],
+                                      title: controller.date!.isEmpty
+                                          ? Strings.year
+                                          : controller.date![0],
                                       textStyle: MyTextStyle(
                                         textSize: 16.px,
                                         textColor: controller.appColors.appText,
@@ -214,6 +237,7 @@ class EditProfileScreen extends GetView<EditProfileController> {
                 SizedBox(height: 35.px),
                 CommonButton(
                   onTap: () {
+                    controller.updateDetails();
                     Get.back();
                   },
                   width: double.infinity,
