@@ -17,6 +17,20 @@ class ProfileController extends BaseController {
 
   RxString? imageFile = "".obs;
 
+  void uploadImage(pickedFile) async {
+    final profileRef = FirebaseStorage.instance.ref(SplashController.userId);
+    try {
+      final uploadTask = await profileRef.putFile(File(pickedFile!.path));
+      String downloadUrl = (await profileRef.getDownloadURL()).toString();
+      print(downloadUrl);
+      DatabaseReference ref =
+          FirebaseDatabase.instance.ref("users/${SplashController.userId}");
+      await ref.update({
+        "profile": downloadUrl,
+      });
+    } catch (e) {}
+  }
+
   getFromCamera() async {
     Get.back();
     XFile? pickedFile = await ImagePicker().pickImage(
@@ -28,22 +42,7 @@ class ProfileController extends BaseController {
       imageFile!.value = pickedFile.path;
     }
     printAction("imageFile ------>>> ${imageFile!.value}");
-
-    final profileRef = FirebaseStorage.instance.ref(SplashController.userId);
-
-    try {
-      final uploadTask = await profileRef.putFile(File(pickedFile!.path));
-
-      String downloadUrl = (await profileRef.getDownloadURL()).toString();
-      print(downloadUrl);
-
-      DatabaseReference ref =
-          FirebaseDatabase.instance.ref("users/${SplashController.userId}");
-      await ref.update({
-        "profile": downloadUrl,
-      });
-    } catch (e) {}
-
+    uploadImage(pickedFile);
     update();
   }
 
@@ -60,6 +59,7 @@ class ProfileController extends BaseController {
     }
 
     printAction("imageFile ------>>> ${imageFile!.value}");
+    uploadImage(pickedFile);
     update();
   }
 }
