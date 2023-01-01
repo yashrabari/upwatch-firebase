@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "409266943141",
+    "project_id": "upwatch-70d03",
+    "storage_bucket": "upwatch-70d03.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:409266943141:android:dc36308d7f46e5cb37c94c",
+        "android_client_info": {
+          "package_name": "com.app.upwatch"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "409266943141-f2m4059mpkkndsb1s50meje4o37759ls.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBCMysIxfmPK0EN8IO0pMi2OXnU5gKPsqo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "409266943141-f2m4059mpkkndsb1s50meje4o37759ls.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
