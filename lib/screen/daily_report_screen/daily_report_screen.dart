@@ -43,7 +43,9 @@ class DailyReportScreen extends GetView<DailyReportController> {
                         children: [
                           Obx(() {
                             return MyTextView(
-                              controller.date.value.isEmpty ? controller.toDayDate : controller.date.value,
+                              controller.date.value.isEmpty
+                                  ? controller.toDayDate
+                                  : controller.date.value,
                               isMaxLineWrap: true,
                               textAlignNew: TextAlign.center,
                               textStyleNew: MyTextStyle(
@@ -84,51 +86,63 @@ class DailyReportScreen extends GetView<DailyReportController> {
                           textInputAction: TextInputAction.next,
                           inputType: TextInputType.text,
                           titleStyle: MyTextStyle(
-                            textSize: controller.appDimensions.textFieldTitleText,
+                            textSize:
+                                controller.appDimensions.textFieldTitleText,
                             textColor: controller.appColors.appText,
                             textWeight: FontWeight.bold,
                           ),
                           hintTextStyle: MyTextStyle(
-                            textSize: controller.appDimensions.textFieldHintText,
-                            textColor: controller.appColors.buttonBackGroundColor.withOpacity(0.60),
+                            textSize:
+                                controller.appDimensions.textFieldHintText,
+                            textColor: controller
+                                .appColors.buttonBackGroundColor
+                                .withOpacity(0.60),
                             textWeight: FontWeight.w400,
                           ),
                           textFieldStyle: MyTextStyle(
                             textSize: controller.appDimensions.textFieldText,
-                            textColor: controller.appColors.buttonBackGroundColor,
+                            textColor:
+                                controller.appColors.buttonBackGroundColor,
                             textWeight: FontWeight.w400,
                           ),
-                          controller: TextEditingController(),
+                          controller: controller.controllerBloodGlucose,
                           // isHeight: true,
                         ),
                         Container(
-                          margin: EdgeInsets.only(top: controller.appDimensions.topSpaceTextField),
+                          margin: EdgeInsets.only(
+                              top: controller.appDimensions.topSpaceTextField),
                           child: CommonTextFieldWithTitle(
                             titleText: Strings.bloodOxygen,
                             hintText: Strings.hintBloodOxygen,
                             inputType: TextInputType.text,
                             textInputAction: TextInputAction.next,
                             titleStyle: MyTextStyle(
-                              textSize: controller.appDimensions.textFieldTitleText,
+                              textSize:
+                                  controller.appDimensions.textFieldTitleText,
                               textColor: controller.appColors.appText,
                               textWeight: FontWeight.bold,
                             ),
                             hintTextStyle: MyTextStyle(
-                              textSize: controller.appDimensions.textFieldHintText,
-                              textColor: controller.appColors.buttonBackGroundColor.withOpacity(0.60),
+                              textSize:
+                                  controller.appDimensions.textFieldHintText,
+                              textColor: controller
+                                  .appColors.buttonBackGroundColor
+                                  .withOpacity(0.60),
                               textWeight: FontWeight.w400,
                             ),
                             textFieldStyle: MyTextStyle(
                               textSize: controller.appDimensions.textFieldText,
-                              textColor: controller.appColors.buttonBackGroundColor,
+                              textColor:
+                                  controller.appColors.buttonBackGroundColor,
                               textWeight: FontWeight.w400,
                             ),
-                            controller: TextEditingController(),
+                            controller: controller.controllerBloodOxygen,
                             // isHeight: true,
                           ),
                         ),
                         Container(
-                          margin: EdgeInsets.only(top: controller.appDimensions.topSpaceTextField),
+                          margin: EdgeInsets.only(
+                              top: controller.appDimensions.topSpaceTextField),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -139,7 +153,8 @@ class DailyReportScreen extends GetView<DailyReportController> {
                                 child: CommonMediumText(
                                     title: Strings.bloodPressure,
                                     textStyle: MyTextStyle(
-                                      textSize: controller.appDimensions.textFieldTitleText,
+                                      textSize: controller
+                                          .appDimensions.textFieldTitleText,
                                       textColor: controller.appColors.appText,
                                       textWeight: FontWeight.bold,
                                     )),
@@ -152,21 +167,27 @@ class DailyReportScreen extends GetView<DailyReportController> {
                                       hintText: Strings.systolic,
                                       textInputAction: TextInputAction.next,
                                       titleStyle: MyTextStyle(
-                                        textSize: controller.appDimensions.textFieldTitleText,
+                                        textSize: controller
+                                            .appDimensions.textFieldTitleText,
                                         textColor: controller.appColors.appText,
                                         textWeight: FontWeight.bold,
                                       ),
                                       hintTextStyle: MyTextStyle(
-                                        textSize: controller.appDimensions.textFieldHintText,
-                                        textColor: controller.appColors.buttonBackGroundColor /*.withOpacity(0.60)*/,
+                                        textSize: controller
+                                            .appDimensions.textFieldHintText,
+                                        textColor: controller.appColors
+                                            .buttonBackGroundColor /*.withOpacity(0.60)*/,
                                         textWeight: FontWeight.w400,
                                       ),
                                       textFieldStyle: MyTextStyle(
-                                        textSize: controller.appDimensions.textFieldText,
-                                        textColor: controller.appColors.buttonBackGroundColor,
+                                        textSize: controller
+                                            .appDimensions.textFieldText,
+                                        textColor: controller
+                                            .appColors.buttonBackGroundColor,
                                         textWeight: FontWeight.w400,
                                       ),
-                                      controller: TextEditingController(),
+                                      controller:
+                                          controller.controllerBPSystolic,
                                       // isHeight: true,
                                     ),
                                   ),
@@ -179,21 +200,27 @@ class DailyReportScreen extends GetView<DailyReportController> {
                                       hintText: Strings.diastolic,
                                       textInputAction: TextInputAction.next,
                                       titleStyle: MyTextStyle(
-                                        textSize: controller.appDimensions.textFieldTitleText,
+                                        textSize: controller
+                                            .appDimensions.textFieldTitleText,
                                         textColor: controller.appColors.appText,
                                         textWeight: FontWeight.bold,
                                       ),
                                       hintTextStyle: MyTextStyle(
-                                        textSize: controller.appDimensions.textFieldHintText,
-                                        textColor: controller.appColors.buttonBackGroundColor /*.withOpacity(0.60)*/,
+                                        textSize: controller
+                                            .appDimensions.textFieldHintText,
+                                        textColor: controller.appColors
+                                            .buttonBackGroundColor /*.withOpacity(0.60)*/,
                                         textWeight: FontWeight.w400,
                                       ),
                                       textFieldStyle: MyTextStyle(
-                                        textSize: controller.appDimensions.textFieldText,
-                                        textColor: controller.appColors.buttonBackGroundColor,
+                                        textSize: controller
+                                            .appDimensions.textFieldText,
+                                        textColor: controller
+                                            .appColors.buttonBackGroundColor,
                                         textWeight: FontWeight.w400,
                                       ),
-                                      controller: TextEditingController(),
+                                      controller:
+                                          controller.controllerBPDiastolic,
                                       // isHeight: true,
                                     ),
                                   )
@@ -203,52 +230,64 @@ class DailyReportScreen extends GetView<DailyReportController> {
                           ),
                         ),
                         Container(
-                          margin: EdgeInsets.only(top: controller.appDimensions.topSpaceTextField),
+                          margin: EdgeInsets.only(
+                              top: controller.appDimensions.topSpaceTextField),
                           child: CommonTextFieldWithTitle(
                             titleText: Strings.bloodBodyTemperature,
                             hintText: Strings.hintBodyTemperature,
                             textInputAction: TextInputAction.next,
                             titleStyle: MyTextStyle(
-                              textSize: controller.appDimensions.textFieldTitleText,
+                              textSize:
+                                  controller.appDimensions.textFieldTitleText,
                               textColor: controller.appColors.appText,
                               textWeight: FontWeight.bold,
                             ),
                             hintTextStyle: MyTextStyle(
-                              textSize: controller.appDimensions.textFieldHintText,
-                              textColor: controller.appColors.buttonBackGroundColor.withOpacity(0.60),
+                              textSize:
+                                  controller.appDimensions.textFieldHintText,
+                              textColor: controller
+                                  .appColors.buttonBackGroundColor
+                                  .withOpacity(0.60),
                               textWeight: FontWeight.w400,
                             ),
                             textFieldStyle: MyTextStyle(
                               textSize: controller.appDimensions.textFieldText,
-                              textColor: controller.appColors.buttonBackGroundColor,
+                              textColor:
+                                  controller.appColors.buttonBackGroundColor,
                               textWeight: FontWeight.w400,
                             ),
-                            controller: TextEditingController(),
+                            controller: controller.controllerBodyTemp,
                             // isHeight: true,
                           ),
                         ),
                         Container(
-                          margin: EdgeInsets.only(top: controller.appDimensions.topSpaceTextField),
+                          margin: EdgeInsets.only(
+                              top: controller.appDimensions.topSpaceTextField),
                           child: CommonTextFieldWithTitle(
                             titleText: Strings.bloodBodyWeight,
                             hintText: Strings.hintBodyWeight,
                             textInputAction: TextInputAction.done,
                             titleStyle: MyTextStyle(
-                              textSize: controller.appDimensions.textFieldTitleText,
+                              textSize:
+                                  controller.appDimensions.textFieldTitleText,
                               textColor: controller.appColors.appText,
                               textWeight: FontWeight.bold,
                             ),
                             hintTextStyle: MyTextStyle(
-                              textSize: controller.appDimensions.textFieldHintText,
-                              textColor: controller.appColors.buttonBackGroundColor.withOpacity(0.60),
+                              textSize:
+                                  controller.appDimensions.textFieldHintText,
+                              textColor: controller
+                                  .appColors.buttonBackGroundColor
+                                  .withOpacity(0.60),
                               textWeight: FontWeight.w400,
                             ),
                             textFieldStyle: MyTextStyle(
                               textSize: controller.appDimensions.textFieldText,
-                              textColor: controller.appColors.buttonBackGroundColor,
+                              textColor:
+                                  controller.appColors.buttonBackGroundColor,
                               textWeight: FontWeight.w400,
                             ),
-                            controller: TextEditingController(),
+                            controller: controller.controllerBodyWeight,
                             // isHeight: true,
                           ),
                         ),
@@ -256,6 +295,7 @@ class DailyReportScreen extends GetView<DailyReportController> {
                           margin: EdgeInsets.only(top: 4.h),
                           child: CommonButton(
                             onTap: () {
+                              controller.saveDailyReport();
                               Get.offAllNamed(TabBarScreen.routes);
                             },
                             width: double.infinity,
@@ -288,7 +328,8 @@ class DailyReportScreen extends GetView<DailyReportController> {
           borderRadius: 20.px,
           bottomSheetColor: controller.appColors.white,
           widget: Padding(
-            padding: EdgeInsets.symmetric(horizontal: controller.appDimensions.horizontalWholeApp),
+            padding: EdgeInsets.symmetric(
+                horizontal: controller.appDimensions.horizontalWholeApp),
             child: Column(
               children: [
                 Padding(
@@ -308,7 +349,8 @@ class DailyReportScreen extends GetView<DailyReportController> {
                   padding: EdgeInsets.symmetric(horizontal: 10.px),
                   child: SfDateRangePicker(
                     onSelectionChanged: (dateRangePickerSelectionChangedArgs) {
-                      printWarning("dateRangePickerSelectionChangedArgs ------------ ${dateRangePickerSelectionChangedArgs.value}");
+                      printWarning(
+                          "dateRangePickerSelectionChangedArgs ------------ ${dateRangePickerSelectionChangedArgs.value}");
                       controller.date.value = controller.utils.changeDateFormat(
                         date: dateRangePickerSelectionChangedArgs.value,
                         outputFormat: ("d MMM yyyy"),
@@ -320,7 +362,8 @@ class DailyReportScreen extends GetView<DailyReportController> {
                     showNavigationArrow: true,
                     maxDate: DateTime.now(),
                     view: DateRangePickerView.month,
-                    selectionColor: controller.appColors.appOrange2.withOpacity(0.5),
+                    selectionColor:
+                        controller.appColors.appOrange2.withOpacity(0.5),
                     todayHighlightColor: controller.appColors.appOrange2,
                     enablePastDates: true,
                     headerStyle: DateRangePickerHeaderStyle(
