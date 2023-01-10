@@ -178,51 +178,58 @@ class LoginScreen extends GetView<LoginController> {
                                   SizedBox(
                                     height: 12.w,
                                     width: 12.w,
-                                    child: Container(
-                                      decoration: BoxDecoration(
-                                          border: Border.all(
-                                            color: controller.appColors.btnFb,
-                                          ),
-                                          color: controller.appColors.btnFb
-                                              .withOpacity(0.1),
-                                          borderRadius: BorderRadius.all(
-                                              Radius.circular(10.px))),
-                                      // color: controller.appColors.btnFb.withOpacity(0.5),
-                                      child: Padding(
-                                        padding: EdgeInsets.all(2.5.w),
-                                        child: SizedBox(
-                                          child: Image.asset(
-                                            ImagePath.logoFacebook,
+                                    child: InkWell(
+                                      onTap: controller.signInWithFB,
+                                      child: Container(
+                                        decoration: BoxDecoration(
+                                            border: Border.all(
+                                              color: controller.appColors.btnFb,
+                                            ),
+                                            color: controller.appColors.btnFb
+                                                .withOpacity(0.1),
+                                            borderRadius: BorderRadius.all(
+                                                Radius.circular(10.px))),
+                                        // color: controller.appColors.btnFb.withOpacity(0.5),
+                                        child: Padding(
+                                          padding: EdgeInsets.all(2.5.w),
+                                          child: SizedBox(
+                                            child: Image.asset(
+                                              ImagePath.logoFacebook,
+                                            ),
                                           ),
                                         ),
                                       ),
                                     ),
                                   ),
-                                  Container(
-                                    height: 12.w,
-                                    width: 12.w,
-                                    margin: EdgeInsets.symmetric(
-                                        horizontal: 2.w, vertical: 2.h),
+                                  InkWell(
                                     child: Container(
-                                      decoration: BoxDecoration(
-                                          border: Border.all(
-                                            color:
-                                                controller.appColors.btnGoogle,
-                                          ),
-                                          color: controller.appColors.btnGoogle
-                                              .withOpacity(0.1),
-                                          borderRadius: BorderRadius.all(
-                                              Radius.circular(10.px))),
-                                      // color: controller.appColors.btnFb.withOpacity(0.5),
-                                      child: Padding(
-                                        padding: EdgeInsets.all(2.5.w),
-                                        child: SizedBox(
-                                          child: Image.asset(
-                                            ImagePath.logoGoogle,
+                                      height: 12.w,
+                                      width: 12.w,
+                                      margin: EdgeInsets.symmetric(
+                                          horizontal: 2.w, vertical: 2.h),
+                                      child: Container(
+                                        decoration: BoxDecoration(
+                                            border: Border.all(
+                                              color: controller
+                                                  .appColors.btnGoogle,
+                                            ),
+                                            color: controller
+                                                .appColors.btnGoogle
+                                                .withOpacity(0.1),
+                                            borderRadius: BorderRadius.all(
+                                                Radius.circular(10.px))),
+                                        // color: controller.appColors.btnFb.withOpacity(0.5),
+                                        child: Padding(
+                                          padding: EdgeInsets.all(2.5.w),
+                                          child: SizedBox(
+                                            child: Image.asset(
+                                              ImagePath.logoGoogle,
+                                            ),
                                           ),
                                         ),
                                       ),
                                     ),
+                                    onTap: controller.signInWithGoogle,
                                   ),
                                   SizedBox(
                                     height: 12.w,

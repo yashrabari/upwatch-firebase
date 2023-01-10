@@ -67,6 +67,8 @@ dependencies:
   firebase_core: ^2.4.0
   firebase_database: ^10.0.9
   firebase_storage: ^11.0.10
+  google_sign_in: ^5.4.2
+  flutter_facebook_auth: ^5.0.7
 
 
 dev_dependencies:

@@ -1,3 +1,5 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:upwatch/Widget/custom_appbar.dart';
 import 'package:upwatch/common/rx_common_model.dart';
 import 'package:upwatch/screen/dashboard_screen/dashboard_screen.dart';
@@ -31,29 +33,37 @@ class SettingsScreen extends GetView<SettingsController> {
               Expanded(
                 child: ListView.builder(
                   shrinkWrap: true,
-                  padding: EdgeInsets.symmetric(horizontal: AppDimensions().horizontalWholeApp),
+                  padding: EdgeInsets.symmetric(
+                      horizontal: AppDimensions().horizontalWholeApp),
                   physics: BouncingScrollPhysics(),
                   itemBuilder: (mContext, index) {
                     RxCommonModel model = controller.listSettings[index];
                     return GestureDetector(
-                      onTap: () {
+                      onTap: () async {
                         if (model.title == Strings.myProfile) {
                           Get.toNamed(ProfileScreen.routes);
-                        } else if (model.title == Strings.healthDataRecordSetting) {
+                        } else if (model.title ==
+                            Strings.healthDataRecordSetting) {
                           Get.to(HealthRecordScreen());
                         } else if (model.title == Strings.dashboardSetting) {
                           Get.to(DashboardSettingScreen());
-                        } else if (model.title == Strings.smartwatchConnection) {
-                          Get.to(ConnectionScreen(), arguments: 1, binding: ConnectionBinding());
+                        } else if (model.title ==
+                            Strings.smartwatchConnection) {
+                          Get.to(ConnectionScreen(),
+                              arguments: 1, binding: ConnectionBinding());
                         } else if (model.title == Strings.healthAppConnection) {
-                          Get.to(ConnectionScreen(), arguments: 0, binding: ConnectionBinding());
+                          Get.to(ConnectionScreen(),
+                              arguments: 0, binding: ConnectionBinding());
                         } else if (model.title == Strings.getHelp) {
                           Get.toNamed(HelpScreen.routes);
                         } else if (model.title == Strings.language) {
-                          Get.toNamed(LanguageChangeScreen.routes, arguments: ['fromSettings']);
+                          Get.toNamed(LanguageChangeScreen.routes,
+                              arguments: ['fromSettings']);
                         } else if (model.title == Strings.deleteAccount) {
                           Get.toNamed(DeleteAccountScreen.routes);
                         } else if (model.title == Strings.logout) {
+                          await FirebaseAuth.instance.signOut();
+                          await GoogleSignIn().signOut();
                           Get.offAllNamed(LoginScreen.routes);
                         }
                       },
@@ -62,10 +72,14 @@ class SettingsScreen extends GetView<SettingsController> {
                         margin: EdgeInsets.only(bottom: 20.px),
                         padding: EdgeInsets.symmetric(horizontal: 15.px),
                         decoration: BoxDecoration(
-                          color: model.title == Strings.logout ? appColors.borderColor.withOpacity(0.1) : appColors.borderColor.withOpacity(0.3),
+                          color: model.title == Strings.logout
+                              ? appColors.borderColor.withOpacity(0.1)
+                              : appColors.borderColor.withOpacity(0.3),
                           borderRadius: BorderRadius.circular(10.0.px),
                           border: Border.all(
-                            color: model.title == Strings.logout ? appColors.budgeColor.withOpacity(0.5) : appColors.borderColor.withOpacity(0.3),
+                            color: model.title == Strings.logout
+                                ? appColors.budgeColor.withOpacity(0.5)
+                                : appColors.borderColor.withOpacity(0.3),
                           ),
                         ),
                         child: Row(
@@ -89,7 +103,9 @@ class SettingsScreen extends GetView<SettingsController> {
                                 padding: EdgeInsets.all(2.px),
                                 child: Image.asset(
                                   ImagePath.nextArrowHelp,
-                                  color: (model.title == Strings.logout ? appColors.budgeColor : appColors.appText),
+                                  color: (model.title == Strings.logout
+                                      ? appColors.budgeColor
+                                      : appColors.appText),
                                 ),
                               ),
                             )
