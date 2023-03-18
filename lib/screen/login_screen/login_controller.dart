@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 import 'package:upwatch/base_controller.dart';
 import 'package:upwatch/screen/splash_screen/splash_controller.dart';
 import 'package:upwatch/screen/tabbar_screen/tabbar_screen.dart';
@@ -69,6 +70,37 @@ class LoginController extends BaseController {
               FacebookAuthProvider.credential(result.accessToken!.token);
           final userCredential = await FirebaseAuth.instance
               .signInWithCredential(facebookCredential);
+      }
+    } on FirebaseAuthException catch (e) {
+      throw e;
+    }
+  }
+
+  void signInWithApple() async {
+    try {
+      var au = FirebaseAuth.instance;
+      Future<AuthorizationCredentialAppleID?>? appleCredentials =
+          SignInWithApple.getAppleIDCredential(
+        scopes: [
+          AppleIDAuthorizationScopes.email,
+          AppleIDAuthorizationScopes.fullName,
+        ],
+      );
+      AuthorizationCredentialAppleID? appleCredential;
+      try {
+        appleCredential = await appleCredentials;
+      } catch (e) {
+        throw e;
+      }
+      if (appleCredential != null) {
+        final oauthCredential = OAuthProvider("apple.com").credential(
+          idToken: appleCredential.identityToken,
+        );
+        UserCredential userCredential =
+            await au.signInWithCredential(oauthCredential);
+        SplashController.userId = userCredential.user?.uid;
+        Get.toNamed(TabBarScreen.routes);
+        await au.currentUser?.linkWithCredential(oauthCredential);
       }
     } on FirebaseAuthException catch (e) {
       throw e;
