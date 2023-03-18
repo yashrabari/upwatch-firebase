@@ -231,28 +231,32 @@ class LoginScreen extends GetView<LoginController> {
                                     ),
                                     onTap: controller.signInWithGoogle,
                                   ),
-                                  SizedBox(
-                                    height: 12.w,
-                                    width: 12.w,
-                                    child: Container(
-                                      decoration: BoxDecoration(
-                                          border: Border.all(
-                                            color: controller.appColors.black,
-                                          ),
-                                          color: controller.appColors.black
-                                              .withOpacity(0.05),
-                                          borderRadius: BorderRadius.all(
-                                              Radius.circular(10.px))),
-                                      // color: controller.appColors.btnFb.withOpacity(0.5),
-                                      child: Padding(
-                                        padding: EdgeInsets.all(2.5.w),
-                                        child: SizedBox(
-                                          child: Image.asset(
-                                            ImagePath.logoIos,
+                                  InkWell(
+                                    child: SizedBox(
+                                      height: 12.w,
+                                      width: 12.w,
+                                      child: Container(
+                                        decoration: BoxDecoration(
+                                            border: Border.all(
+                                              color: controller.appColors.black,
+                                            ),
+                                            color: controller.appColors.black
+                                                .withOpacity(0.05),
+                                            borderRadius: BorderRadius.all(
+                                                Radius.circular(10.px))),
+                                        // color: controller.appColors.btnFb.withOpacity(0.5),
+                                        child: Padding(
+                                          padding: EdgeInsets.all(2.5.w),
+                                          child: SizedBox(
+                                            child: Image.asset(
+                                              ImagePath.logoIos,
+                                            ),
                                           ),
                                         ),
                                       ),
                                     ),
+                                    onTap: controller.signInWithApple,
+
                                   ),
                                   const Spacer()
                                 ],
