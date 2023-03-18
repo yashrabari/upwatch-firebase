@@ -1,4 +1,4 @@
-import 'package:syncfusion_flutter_datepicker/datepicker.dart';
+// import 'package:syncfusion_flutter_datepicker/datepicker.dart';
 import 'package:upwatch/screen/tabbar_screen/tabbar_screen.dart';
 
 import '../../common/all.dart';
@@ -345,73 +345,73 @@ class DailyReportScreen extends GetView<DailyReportController> {
                     ),
                   ),
                 ),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 10.px),
-                  child: SfDateRangePicker(
-                    onSelectionChanged: (dateRangePickerSelectionChangedArgs) {
-                      printWarning(
-                          "dateRangePickerSelectionChangedArgs ------------ ${dateRangePickerSelectionChangedArgs.value}");
-                      controller.date.value = controller.utils.changeDateFormat(
-                        date: dateRangePickerSelectionChangedArgs.value,
-                        outputFormat: ("d MMM yyyy"),
-                      );
-                      printOkStatus("Date -------> ${controller.date.value}");
-                    },
-                    selectionMode: DateRangePickerSelectionMode.single,
-                    allowViewNavigation: true,
-                    showNavigationArrow: true,
-                    maxDate: DateTime.now(),
-                    view: DateRangePickerView.month,
-                    selectionColor:
-                        controller.appColors.appOrange2.withOpacity(0.5),
-                    todayHighlightColor: controller.appColors.appOrange2,
-                    enablePastDates: true,
-                    headerStyle: DateRangePickerHeaderStyle(
-                      textStyle: MyTextStyle(
-                        textSize: 16.sp,
-                        textColor: controller.appColors.btnEnd,
-                        textWeight: FontWeight.w500,
-                      ),
-                    ),
-                    monthViewSettings: DateRangePickerMonthViewSettings(
-                      showTrailingAndLeadingDates: true,
-                      weekNumberStyle: DateRangePickerWeekNumberStyle(
-                        textStyle: MyTextStyle(
-                          textSize: 16.sp,
-                          textColor: controller.appColors.black,
-                          textWeight: FontWeight.normal,
-                        ),
-                      ),
-                    ),
-                    monthCellStyle: DateRangePickerMonthCellStyle(
-                        textStyle: MyTextStyle(
-                          textSize: 16.sp,
-                          textColor: controller.appColors.black,
-                          textWeight: FontWeight.normal,
-                        ),
-                        leadingDatesTextStyle: MyTextStyle(
-                          textSize: 16.sp,
-                          textColor: controller.appColors.textColors,
-                          textWeight: FontWeight.normal,
-                        ),
-                        trailingDatesTextStyle: MyTextStyle(
-                          textSize: 16.sp,
-                          textColor: controller.appColors.textColors,
-                          textWeight: FontWeight.normal,
-                        ),
-                        todayTextStyle: MyTextStyle(
-                          textSize: 16.sp,
-                          textColor: controller.appColors.appOrange2,
-                          textWeight: FontWeight.normal,
-                        )),
-                    initialSelectedRange: PickerDateRange(
-                      DateTime.now().subtract(const Duration(days: 4)),
-                      DateTime.now().add(
-                        const Duration(days: 3),
-                      ),
-                    ),
-                  ),
-                ),
+                // Padding(
+                //   padding: EdgeInsets.symmetric(horizontal: 10.px),
+                //   child: SfDateRangePicker(
+                //     onSelectionChanged: (dateRangePickerSelectionChangedArgs) {
+                //       printWarning(
+                //           "dateRangePickerSelectionChangedArgs ------------ ${dateRangePickerSelectionChangedArgs.value}");
+                //       controller.date.value = controller.utils.changeDateFormat(
+                //         date: dateRangePickerSelectionChangedArgs.value,
+                //         outputFormat: ("d MMM yyyy"),
+                //       );
+                //       printOkStatus("Date -------> ${controller.date.value}");
+                //     },
+                //     selectionMode: DateRangePickerSelectionMode.single,
+                //     allowViewNavigation: true,
+                //     showNavigationArrow: true,
+                //     maxDate: DateTime.now(),
+                //     view: DateRangePickerView.month,
+                //     selectionColor:
+                //         controller.appColors.appOrange2.withOpacity(0.5),
+                //     todayHighlightColor: controller.appColors.appOrange2,
+                //     enablePastDates: true,
+                //     headerStyle: DateRangePickerHeaderStyle(
+                //       textStyle: MyTextStyle(
+                //         textSize: 16.sp,
+                //         textColor: controller.appColors.btnEnd,
+                //         textWeight: FontWeight.w500,
+                //       ),
+                //     ),
+                //     monthViewSettings: DateRangePickerMonthViewSettings(
+                //       showTrailingAndLeadingDates: true,
+                //       weekNumberStyle: DateRangePickerWeekNumberStyle(
+                //         textStyle: MyTextStyle(
+                //           textSize: 16.sp,
+                //           textColor: controller.appColors.black,
+                //           textWeight: FontWeight.normal,
+                //         ),
+                //       ),
+                //     ),
+                //     monthCellStyle: DateRangePickerMonthCellStyle(
+                //         textStyle: MyTextStyle(
+                //           textSize: 16.sp,
+                //           textColor: controller.appColors.black,
+                //           textWeight: FontWeight.normal,
+                //         ),
+                //         leadingDatesTextStyle: MyTextStyle(
+                //           textSize: 16.sp,
+                //           textColor: controller.appColors.textColors,
+                //           textWeight: FontWeight.normal,
+                //         ),
+                //         trailingDatesTextStyle: MyTextStyle(
+                //           textSize: 16.sp,
+                //           textColor: controller.appColors.textColors,
+                //           textWeight: FontWeight.normal,
+                //         ),
+                //         todayTextStyle: MyTextStyle(
+                //           textSize: 16.sp,
+                //           textColor: controller.appColors.appOrange2,
+                //           textWeight: FontWeight.normal,
+                //         )),
+                //     initialSelectedRange: PickerDateRange(
+                //       DateTime.now().subtract(const Duration(days: 4)),
+                //       DateTime.now().add(
+                //         const Duration(days: 3),
+                //       ),
+                //     ),
+                //   ),
+                // ),
                 Container(
                   margin: EdgeInsets.only(top: 4.h),
                   child: CommonButton(

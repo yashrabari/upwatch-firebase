@@ -7,6 +7,7 @@ import 'package:upwatch/screen/splash_screen/splash_controller.dart';
 class SplashScreen extends GetView<SplashController> {
   const SplashScreen({Key? key}) : super(key: key);
   static const routes = "/SplashScreen";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

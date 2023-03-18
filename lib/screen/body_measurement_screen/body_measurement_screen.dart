@@ -1,12 +1,6 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:upwatch/Widget/custom_appbar.dart';
 import 'package:upwatch/common/all.dart';
-import 'package:upwatch/common/app_dimensions.dart';
-import 'package:upwatch/common/common_widget.dart';
 import 'package:upwatch/common/constants.dart';
-import 'package:upwatch/common/strings.dart';
 import 'package:upwatch/screen/body_measurement_screen/body_measurement_controller.dart';
 
 class BodyMeasurementScreen extends GetView<BodyMeasurementController> {

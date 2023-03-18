@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "409266943141",
+    "firebase_url": "https://upwatch-70d03-default-rtdb.firebaseio.com",
     "project_id": "upwatch-70d03",
     "storage_bucket": "upwatch-70d03.appspot.com"
   },
@@ -13,6 +14,22 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "409266943141-dk1q4pi1s1aoruoct3p4ojrlf72es0ct.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.app.upwatch",
+            "certificate_hash": "8265e011ba567e2eab2d29566a7c3718094a9c53"
+          }
+        },
+        {
+          "client_id": "409266943141-p1s5t8m5nhfe3dekjj68ld2e1cpogaoi.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.app.upwatch",
+            "certificate_hash": "9c77c332a7025a3753260f0ef84494858d72a80b"
+          }
+        },
         {
           "client_id": "409266943141-f2m4059mpkkndsb1s50meje4o37759ls.apps.googleusercontent.com",
           "client_type": 3
@@ -29,6 +46,13 @@
             {
               "client_id": "409266943141-f2m4059mpkkndsb1s50meje4o37759ls.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "409266943141-e2kr05de1e2ectvvftof13mc0cqrbl45.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.dipika.upwatch"
+              }
             }
           ]
         }

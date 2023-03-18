@@ -1,4 +1,3 @@
-import 'package:get/get.dart';
 import 'package:upwatch/common/all.dart';
 
 class BodyMeasurementController extends GetxController {

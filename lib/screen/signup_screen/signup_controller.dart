@@ -43,6 +43,7 @@ class SignupController extends BaseController {
         "gender": dropdownValue.toString(),
         "dob": date.toString(),
       });
+
     } on FirebaseAuthException catch (e) {
       print(e);
       if (e.code == "email-already-in-use") {

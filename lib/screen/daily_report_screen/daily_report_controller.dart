@@ -2,14 +2,14 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:syncfusion_flutter_datepicker/datepicker.dart';
+// import 'package:syncfusion_flutter_datepicker/datepicker.dart';
 import 'package:upwatch/base_controller.dart';
 import 'package:upwatch/screen/splash_screen/splash_controller.dart';
 
 class DailyReportController extends BaseController {
-  void onSelectionChanged(
-      DateRangePickerSelectionChangedArgs
-          dateRangePickerSelectionChangedArgs) {}
+  // void onSelectionChanged(
+  //     DateRangePickerSelectionChangedArgs
+  //         dateRangePickerSelectionChangedArgs) {}
   RxString date = "".obs;
   String? toDayDate;
 

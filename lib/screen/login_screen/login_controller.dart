@@ -37,7 +37,7 @@ class LoginController extends BaseController {
 
   void signInWithGoogle() async {
     print("google");
-    final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+    final GoogleSignInAccount? googleUser = await GoogleSignIn(scopes: ['email']).signIn();
     print("heyyy");
     final GoogleSignInAuthentication? googleAuth =
         await googleUser?.authentication;

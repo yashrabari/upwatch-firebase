@@ -1,5 +1,4 @@
 import 'package:flutter/gestures.dart';
-import 'package:upwatch/screen/language_change_screen/language_change_screen.dart';
 import 'package:upwatch/screen/signup_screen/signup_controller.dart';
 
 import '../../common/all.dart';
